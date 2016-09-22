@@ -4,7 +4,7 @@ module Rubykassa
   class PaymentInterface
     include SignatureGenerator
 
-    BASE_URL = 'https://auth.robokassa.ru/Merchant/Index.aspx'.freeze
+    BASE_URL = 'http://www.free-kassa.ru/merchant/cash.php'.freeze
     PARAMS_CONFORMITY = {
       login:       'MerchantLogin'.freeze,
       total:       'OutSum'.freeze,
