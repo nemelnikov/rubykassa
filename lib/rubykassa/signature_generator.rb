@@ -13,12 +13,12 @@ module Rubykassa
     def params_string kind
       result = case kind
                when :payment
-                 [Rubykassa.login, @total, Rubykassa.first_password, @invoice_id,
-                  custom_params]
+                 [Rubykassa.login, @total, @invoice_id,
+                  Rubykassa.first_password, custom_params]
                when :result
-                 [Rubykassa.login, @total, Rubykassa.second_password, @invoice_id, custom_params]
+                 [@total, @invoice_id, Rubykassa.second_password, custom_params]
                when :success
-                 [Rubykassa.login, @total, Rubykassa.second_password, @invoice_id, custom_params]
+                 [@total, @invoice_id, Rubykassa.first_password, custom_params]
                end
       result.flatten.join ':'
     end
